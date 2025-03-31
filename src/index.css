@@ -19,9 +19,9 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   max-width: 500px;
-  width: 100%;
+  width: 130%;
 }
 
 /* Main container for current tasks and completed tasks */
