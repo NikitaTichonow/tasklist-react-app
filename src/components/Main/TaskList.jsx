@@ -1,9 +1,10 @@
 import TaskItem from "./TaskItem"
 
-function TaskList() {
+function TaskList({activeTasks}) {
     return (
         <ul className="task-list">
-            <TaskItem/>
+            {activeTasks.map((task) =>(<TaskItem task={task} key={task.id}/>))}
+            
         </ul>
     )
 }

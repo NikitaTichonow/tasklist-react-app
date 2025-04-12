@@ -24,6 +24,9 @@ function App() {
     setTasks([...tasks, { ...task, completed: false, id: Date.now() }]);
   }
 
+  const activeTasks = tasks.filter((task) => !task.completed)
+  const completedTasks = tasks.filter((task) => task.completed)
+
   return (
     <div className="app">
       <Header />
@@ -49,7 +52,7 @@ function App() {
           <button className="sort-button">By date</button>
           <button className="sort-button">By priority</button>
         </div>
-        {openSection.tasks && <TaskList />}
+        {openSection.tasks && <TaskList activeTasks={activeTasks}/>}
       </div>
       <div className="task-container">
         <h2>Completed Task`s</h2>

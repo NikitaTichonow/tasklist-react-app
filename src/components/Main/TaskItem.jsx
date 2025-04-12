@@ -1,11 +1,16 @@
-function TaskItem() {
+function TaskItem({ task }) {
+  const {title, priority, deadline, id} = task;
+
   return (
-    <li className="task-item">
+    <li className={`task-item ${priority.toLowerCase()}`}>
       <div className="task-info">
         <div>
-          Title <strong>Medium</strong>
+          {title}
+          <strong>{priority}</strong>
         </div>
-        <div className="task-deadline">Due: {new Date().toLocaleString()}</div>
+        <div className="task-deadline">
+          Due: {new Date(deadline).toLocaleString()}
+        </div>
       </div>
       <div className="task-buttons">
         <button className="complete-button">Complete</button>
