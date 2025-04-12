@@ -1,17 +1,22 @@
 import { useState } from "react";
 
-function TaskForm() {
+function TaskForm({ addTask }) {
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("Low");
   const [deadline, setDeadline] = useState("");
 
-  function handleSubmit(e){
-    e.preventDefault()
-
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (title.trim() && deadline) {
+      addTask({ title, priority, deadline });
+      setTitle("");
+      setPriority("");
+      setDeadline("");
+    }
   }
 
   return (
-    <form action="" className="task-form">
+    <form action="" className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
         value={title}
